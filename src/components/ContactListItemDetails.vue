@@ -219,12 +219,7 @@
         this.editFormVisibility = !this.editFormVisibility;
       },
 
-      cancelEdit(newContact) {
-        if (JSON.stringify(newContact) === JSON.stringify(this.contact)) {
-
-          return this.setEditFormVisibility();
-        }
-
+      cancelEdit() {
         this.deleteConfirmatioVisibility = !this.deleteConfirmatioVisibility;
         this.editCancel = true;
       },
