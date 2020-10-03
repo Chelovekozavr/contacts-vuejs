@@ -1,5 +1,6 @@
-# Contacts-vuejs
-[DEMO LINK] (https://chelovekozavr.github.io/contacts-vuejs/)
+# Contact book in VueJS
+[DEMO LINK](https://chelovekozavr.github.io/contacts-vuejs/)
+
 Stack: Javascript, VueJS, Vues, router, SASS, BEM
 
 # Technical requirement
