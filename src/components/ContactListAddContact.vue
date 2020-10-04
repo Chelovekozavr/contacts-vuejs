@@ -9,6 +9,7 @@
     >
       <button
         type="submit"
+        id="submit"
         class="add-contact__button"
         @click="changeInputVisibilty"
       >
@@ -21,6 +22,7 @@
       </label>
 
       <input
+        v-focus
         v-if="inputVisibility"
         class="add-contact__input"
         type="text"
@@ -49,6 +51,24 @@
       }
     },
 
+    directives: {
+      focus: {
+        inserted: function (element) {
+          element.focus();
+        }
+      }
+    },
+
+    computed: {
+      buttonSymbol: function() {
+        if (!this.inputVisibility) {
+          return '+';
+        } else {
+          return String.fromCharCode(10003);
+        }
+      }
+    },
+
     methods: {
       onSubmit() {
         if(this.newContactName.trim()) {
@@ -64,17 +84,6 @@
 
       changeInputVisibilty() {
         this.inputVisibility = !this.inputVisibility;
-        this.newContactName = '';
-      }
-    },
-
-    computed: {
-      buttonSymbol: function() {
-        if (!this.inputVisibility) {
-          return '+';
-        } else {
-          return String.fromCharCode(10003);
-        }
       }
     }
   }

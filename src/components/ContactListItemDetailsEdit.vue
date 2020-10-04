@@ -1,10 +1,10 @@
 <template>
   <div class="edit-contact">
     <header class="edit-contact__header">
-      <h3 :key="forceRenderKey">Edit contact info</h3>
+      <h3>Edit contact info</h3>
         <button
           class="edit-contact__button"
-          @click="$emit('cancel-edit')"
+          @click="$emit('cancel-edit', newContact)"
         >
           &#10005;
         </button>
@@ -12,9 +12,9 @@
 
     <form
       @submit.prevent="$emit('submit-editting', newContact);"
-      v-for="(key, title, index) in contact"
+      v-for="(key, title) in contact"
       v-show="title !== 'id' && title !== 'name'"
-      :key="index"
+      :key="title"
       class="edit-contact__list"
       id="submitKeys"
     >

@@ -14,10 +14,6 @@
         @delete-contact="setDeleteConfirmatioVisibility"
       />
     </ul>
-    <ContactListItemDetails
-      v-if="contactDetailsVisibility"
-      :id="contact.id"
-    />
 
     <DeleteConfirmation
       v-if="deleteConfirmatioVisibility"
@@ -34,7 +30,6 @@
   import ContactListItem from './ContactListItem';
   import ContactListAddContact from './ContactListAddContact';
   import DeleteConfirmation from './DeleteConfirmation';
-  import ContactListItemDetails from './ContactListItemDetails';
 
   export default {
     data() {
@@ -53,7 +48,6 @@
       ContactListItem,
       ContactListAddContact,
       DeleteConfirmation,
-      ContactListItemDetails
     },
 
     methods: {

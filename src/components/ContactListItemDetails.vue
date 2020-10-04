@@ -24,9 +24,9 @@
         class="contact-details__list"
       >
         <li
-          v-for="(value, title, index) in contact"
+          v-for="(value, title) in contact"
           v-show="title !== 'id' && title !== 'name'"
-          :key="index"
+          :key="title"
           class="contact-details__item"
         >
           <span class="contact-details__item-title">
@@ -219,7 +219,12 @@
         this.editFormVisibility = !this.editFormVisibility;
       },
 
-      cancelEdit() {
+      cancelEdit(newContact) {
+        if (JSON.stringify(newContact) === JSON.stringify(this.contact)) {
+
+          return this.setEditFormVisibility();
+        }
+        
         this.deleteConfirmatioVisibility = !this.deleteConfirmatioVisibility;
         this.editCancel = true;
       },
@@ -242,6 +247,11 @@
       },
 
       undoChanges() {
+        if (Object.keys(this.prevContact).length === 0) {
+
+          return;
+        }
+
         this.submitEditing(this.prevContact);
       }
     }
